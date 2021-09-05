@@ -1,2 +1,12 @@
 # DataBase
-The Database System course in SCU
+## The Database System course in SCU
+### Personal Information  
+Student:杨文  
+Student ID：2019141460358  
+### Project Schedule 
+Week 1......  
+branch:primer
+ 
+
+
+
