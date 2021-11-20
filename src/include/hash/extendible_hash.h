@@ -34,6 +34,7 @@ namespace scudb {
         // constructor
         ExtendibleHash(size_t size);
 
+
         // helper function to generate hash addressing
         size_t HashKey(const K &key);
 

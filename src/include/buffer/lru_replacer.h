@@ -19,6 +19,7 @@
 namespace scudb {
 
     template <typename T> class LRUReplacer : public Replacer<T> {
+
         
         struct node {
             node() = default;
@@ -29,6 +30,7 @@ namespace scudb {
         };
     public:
         // do not change public interface
+        
         LRUReplacer();
 
         ~LRUReplacer();
