@@ -23,7 +23,6 @@ namespace scudb {
         return std::hash<K>()(key);
     }
 
-
 /*
  * helper function to return global depth of hash table
  * NOTE: you must implement this function in order to pass test

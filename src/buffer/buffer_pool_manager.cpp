@@ -215,7 +215,6 @@ namespace scudb {
             }
         }
 
-
         page_id = disk_manager_->AllocatePage();
         if(res->is_dirty_)
         {

@@ -15,7 +15,6 @@ namespace scudb {
     }
 
     template <typename T> LRUReplacer<T>::~LRUReplacer() = default;
-
     /*
      * Insert value into LRU
      */
