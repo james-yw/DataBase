@@ -23,7 +23,7 @@ namespace scudb {
                           LogManager *log_manager = nullptr);
 
         ~BufferPoolManager();
-
+        
         // disable copy
         // BufferPoolManager(BufferPoolManager const &) = delete;
         // BufferPoolManager &operator=(BufferPoolManager const &) = delete;
