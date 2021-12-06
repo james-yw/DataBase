@@ -24,5 +24,9 @@ branch:homework/homework_2
 
 Project 1......Buffer Pool Manager  
 branch:project  
-test_result:project/test_result  
+test_result:project/test_result/buffer_pool_manage  
+
+Project 2......B+ Tree
+branch:project  
+test_result:project/test_result/B+ Tree  
 
