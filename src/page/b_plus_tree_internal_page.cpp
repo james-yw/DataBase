@@ -17,7 +17,7 @@ namespace scudb
  * Including set page type, set current size, set page id, set parent id and set
  * max page size
  */
-// 每次new一个页面后需要自己调用这个函数进行初始化
+
 template <typename KeyType, typename ValueType, typename KeyComparator>
 void BPlusTreeInternalPage<KeyType, ValueType, KeyComparator>::
     Init(page_id_t page_id, page_id_t parent_id)
@@ -132,7 +132,6 @@ ValueType BPlusTreeInternalPage<KeyType, ValueType, KeyComparator>::
     return array[GetSize() - 1].second;
   }
 
-  // 二分查找
   int low = 1, high = GetSize() - 1, mid;
   while (low < high && low + 1 != high)
   {
@@ -188,7 +187,6 @@ int BPlusTreeInternalPage<KeyType, ValueType, KeyComparator>::
   {
     if (array[i - 1].second == old_value)
     {
-      // 在old_value节点后面插入一个新节点
       array[i] = {new_key, new_value};
       IncreaseSize(1);
       break;
@@ -212,7 +210,6 @@ void BPlusTreeInternalPage<KeyType, ValueType, KeyComparator>::
   auto half = (GetSize() + 1) / 2;
   recipient->CopyHalfFrom(array + GetSize() - half, half, buffer_pool_manager);
 
-  // 更新孩子节点的父节点id
   for (auto index = GetSize() - half; index < GetSize(); ++index)
   {
     auto *page = buffer_pool_manager->FetchPage(ValueAt(index));
@@ -288,7 +285,7 @@ void BPlusTreeInternalPage<KeyType, ValueType, KeyComparator>::
     MoveAllTo(BPlusTreeInternalPage *recipient, int index_in_parent,
               BufferPoolManager *buffer_pool_manager)
 {
-  // 首先先获得父节点页面
+  
   auto *page = buffer_pool_manager->FetchPage(GetParentPageId());
   if (page == nullptr)
   {
@@ -297,7 +294,6 @@ void BPlusTreeInternalPage<KeyType, ValueType, KeyComparator>::
   }
   auto *parent = reinterpret_cast<BPlusTreeInternalPage *>(page->GetData());
 
-  // 更新父节点中的key值
   SetKeyAt(0, parent->KeyAt(index_in_parent));
 
   assert(parent->ValueAt(index_in_parent) == GetPageId());
@@ -306,7 +302,7 @@ void BPlusTreeInternalPage<KeyType, ValueType, KeyComparator>::
 
   recipient->CopyAllFrom(array, GetSize(), buffer_pool_manager);
 
-  // 更新孩子节点的父节点id
+
   for (auto index = 0; index < GetSize(); ++index)
   {
     auto *page = buffer_pool_manager->FetchPage(ValueAt(index));
@@ -357,7 +353,6 @@ void BPlusTreeInternalPage<KeyType, ValueType, KeyComparator>::
 
   recipient->CopyLastFrom(pair, buffer_pool_manager);
 
-  // 更新孩子节点的父节点id
   auto *page = buffer_pool_manager->FetchPage(child_page_id);
   if (page == nullptr)
   {
@@ -411,7 +406,6 @@ void BPlusTreeInternalPage<KeyType, ValueType, KeyComparator>::
 
   recipient->CopyFirstFrom(pair, parent_index, buffer_pool_manager);
 
-  // 更新孩子节点的父节点id
   auto *page = buffer_pool_manager->FetchPage(child_page_id);
   if (page == nullptr)
   {

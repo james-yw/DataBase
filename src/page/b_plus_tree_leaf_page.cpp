@@ -22,7 +22,6 @@ namespace scudb
  * Including set page type, set current size to zero, set page id/parent id, set
  * next page id and set max size
  */
-// 每次new一个页面后需要自己调用这个函数进行初始化
 template <typename KeyType, typename ValueType, typename KeyComparator>
 void BPlusTreeLeafPage<KeyType, ValueType, KeyComparator>::
     Init(page_id_t page_id, page_id_t parent_id)
@@ -117,12 +116,11 @@ int BPlusTreeLeafPage<KeyType, ValueType, KeyComparator>::
     Insert(const KeyType &key, const ValueType &value,
            const KeyComparator &comparator)
 {
-  // 为空或者要插入的值比当前最大的还大
   if (GetSize() == 0 || comparator(key, KeyAt(GetSize() - 1)) > 0)
   {
     array[GetSize()] = {key, value};
   }
-  // 要插入的值当前最小的还小
+  
   else if (comparator(key, array[0].first) < 0)
   {
     memmove(array + 1, array, static_cast<size_t>(GetSize() * sizeof(MappingType)));
@@ -144,7 +142,6 @@ int BPlusTreeLeafPage<KeyType, ValueType, KeyComparator>::
       }
       else
       {
-        // 由于只支持不重复的key，所以不应当执行到这
         assert(0);
       }
     }
@@ -262,7 +259,6 @@ int BPlusTreeLeafPage<KeyType, ValueType, KeyComparator>::
     }
     else
     {
-      // 删除节点
       memmove(array + mid, array + mid + 1,
               static_cast<size_t>((GetSize() - mid - 1) * sizeof(MappingType)));
       IncreaseSize(-1);

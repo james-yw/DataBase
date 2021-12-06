@@ -49,8 +49,6 @@ bool BPlusTree<KeyType, ValueType, KeyComparator>::
     GetValue(const KeyType &key, std::vector<ValueType> &result,
              Transaction *transaction)
 {
-
-  // 根据key找到叶子节点页面
   auto *leaf = FindLeafPage(key, false, Operation::READONLY, transaction);
   bool ret = false;
   if (leaf != nullptr)
@@ -62,7 +60,6 @@ bool BPlusTree<KeyType, ValueType, KeyComparator>::
       ret = true;
     }
 
-    // 释放锁
     UnlockUnpinPages(Operation::READONLY, transaction);
 
     if (transaction == nullptr)
@@ -91,11 +88,8 @@ template <typename KeyType, typename ValueType, typename KeyComparator>
 bool BPlusTree<KeyType, ValueType, KeyComparator>::
     Insert(const KeyType &key, const ValueType &value, Transaction *transaction)
 {
-
-  // 互斥锁
   {
     std::lock_guard<std::mutex> lock(mutex_);
-    // 如果树为空就新建一棵树
     if (IsEmpty())
     {
       StartNewTree(key, value);
@@ -124,7 +118,6 @@ void BPlusTree<KeyType, ValueType, KeyComparator>::
   auto root =
       reinterpret_cast<BPlusTreeLeafPage<KeyType, ValueType,
                                          KeyComparator> *>(page->GetData());
-  // 别忘了要更新根节点页面id
   UpdateRootPageId(true);
   root->Init(root_page_id_, INVALID_PAGE_ID);
   root->Insert(key, value, comparator_);
@@ -151,21 +144,20 @@ bool BPlusTree<KeyType, ValueType, KeyComparator>::
   }
 
   ValueType v;
-  // 如果树中已经有值了，就返回false
+ 
   if (leaf->Lookup(key, v, comparator_))
   {
     UnlockUnpinPages(Operation::INSERT, transaction);
     return false;
   }
 
-  // 不需要分裂就直接插入
+  
   if (leaf->GetSize() < leaf->GetMaxSize())
   {
     leaf->Insert(key, value, comparator_);
   }
   else
   {
-    // 分裂出一个新叶子节点页面
     auto *leaf2 = Split<BPlusTreeLeafPage<KeyType, ValueType, KeyComparator>>(leaf);
     if (comparator_(key, leaf2->KeyAt(0)) < 0)
     {
@@ -176,7 +168,6 @@ bool BPlusTree<KeyType, ValueType, KeyComparator>::
       leaf2->Insert(key, value, comparator_);
     }
 
-    // 更新前后关系
     if (comparator_(leaf->KeyAt(0), leaf2->KeyAt(0)) < 0)
     {
       leaf2->SetNextPageId(leaf->GetNextPageId());
@@ -187,7 +178,6 @@ bool BPlusTree<KeyType, ValueType, KeyComparator>::
       leaf2->SetNextPageId(leaf->GetPageId());
     }
 
-    // 将分裂的节点插入到父节点
     InsertIntoParent(leaf, leaf2->KeyAt(0), leaf2, transaction);
   }
 
@@ -235,7 +225,7 @@ void BPlusTree<KeyType, ValueType, KeyComparator>::
     InsertIntoParent(BPlusTreePage *old_node, const KeyType &key,
                      BPlusTreePage *new_node, Transaction *transaction)
 {
-  // 如果old_node是根节点，则需要新生成一个根页面
+  
   if (old_node->IsRootPage())
   {
     auto *page = buffer_pool_manager_->NewPage(root_page_id_);
@@ -254,7 +244,7 @@ void BPlusTree<KeyType, ValueType, KeyComparator>::
     old_node->SetParentPageId(root_page_id_);
     new_node->SetParentPageId(root_page_id_);
 
-    // 这时需要更新根节点页面id
+    
     UpdateRootPageId(false);
 
     buffer_pool_manager_->UnpinPage(new_node->GetPageId(), true);
@@ -273,7 +263,6 @@ void BPlusTree<KeyType, ValueType, KeyComparator>::
         reinterpret_cast<BPlusTreeInternalPage<KeyType, page_id_t,
                                                KeyComparator> *>(page->GetData());
     
-    // 如果父节点还有空间
     if (internal->GetSize() < internal->GetMaxSize())
     {
       internal->InsertNodeAfter(old_node->GetPageId(), key, new_node->GetPageId());
@@ -469,7 +458,7 @@ bool BPlusTree<KeyType, ValueType, KeyComparator>::
   bool ret;
   if (value_index == 0)
   {
-    // lab3
+    
     Coalesce<N>(node, sibling, parent, 1, transaction);
     transaction->AddIntoDeletedPageSet(sibling_page_id);
     ret = false;
@@ -563,7 +552,7 @@ template <typename KeyType, typename ValueType, typename KeyComparator>
 bool BPlusTree<KeyType, ValueType, KeyComparator>::
     AdjustRoot(BPlusTreePage *old_root_node)
 {
-  // 如果删除了最后一个节点
+  
   if (old_root_node->IsLeafPage())
   {
     if (old_root_node->GetSize() == 0)
@@ -575,7 +564,7 @@ bool BPlusTree<KeyType, ValueType, KeyComparator>::
     return false;
   }
 
-  // 删除了还有最后一个节点
+  
   if (old_root_node->GetSize() == 1)
   {
     auto root =
@@ -707,13 +696,13 @@ bool BPlusTree<KeyType, ValueType, KeyComparator>::
  * Find leaf page containing particular key, if leftMost flag == true, find
  * the left most leaf page
  */
-// 这个函数lab2和lab3有着很多不同
+
 template <typename KeyType, typename ValueType, typename KeyComparator>
 BPlusTreeLeafPage<KeyType, ValueType, KeyComparator> *
 BPlusTree<KeyType, ValueType, KeyComparator>::
     FindLeafPage(const KeyType &key, bool leftMost, Operation op, Transaction *transaction)
 {
-  // 如果操作不是只读的，就要锁根节点
+ 
   if (op != Operation::READONLY)
   {
     lockRoot();
@@ -780,7 +769,7 @@ BPlusTree<KeyType, ValueType, KeyComparator>::
     node = reinterpret_cast<BPlusTreePage *>(child->GetData());
     assert(node->GetParentPageId() == parent_page_id);
 
-    // 如果是安全的，就释放父节点那的锁
+    
     if (op != Operation::READONLY && isSafe(node, op))
     {
       UnlockUnpinPages(op, transaction);
