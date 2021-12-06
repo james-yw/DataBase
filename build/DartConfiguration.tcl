@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/yang/scudb
-BuildDirectory: /home/yang/scudb/build
+SourceDirectory: /home/yangwen/scudb
+BuildDirectory: /home/yangwen/scudb/build
 
 # Where to place the cost data store
 CostDataFile: 
@@ -26,7 +26,7 @@ SubmitURL: http://
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/home/yang/scudb"
+ConfigureCommand: "/usr/bin/cmake" "/home/yangwen/scudb"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 

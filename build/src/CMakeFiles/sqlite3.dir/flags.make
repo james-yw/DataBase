@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -DSQLITE_THREADSAFE=2 -Dsqlite3_EXPORTS
 
-C_INCLUDES = -I/home/yang/scudb/src -I/home/yang/scudb/src/include -I/home/yang/scudb/test/include -I/home/yang/scudb/third_party
+C_INCLUDES = -I/home/yangwen/scudb/src -I/home/yangwen/scudb/src/include -I/home/yangwen/scudb/test/include -I/home/yangwen/scudb/third_party
 
 C_FLAGS = -fPIC
 

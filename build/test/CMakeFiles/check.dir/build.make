@@ -62,10 +62,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yang/scudb
+CMAKE_SOURCE_DIR = /home/yangwen/scudb
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yang/scudb/build
+CMAKE_BINARY_DIR = /home/yangwen/scudb/build
 
 # Utility rule file for check.
 
@@ -73,7 +73,7 @@ CMAKE_BINARY_DIR = /home/yang/scudb/build
 include test/CMakeFiles/check.dir/progress.make
 
 test/CMakeFiles/check:
-	cd /home/yang/scudb/build/test && /usr/bin/ctest --verbose
+	cd /home/yangwen/scudb/build/test && /usr/bin/ctest --verbose
 
 check: test/CMakeFiles/check
 check: test/CMakeFiles/check.dir/build.make
@@ -86,10 +86,10 @@ test/CMakeFiles/check.dir/build: check
 .PHONY : test/CMakeFiles/check.dir/build
 
 test/CMakeFiles/check.dir/clean:
-	cd /home/yang/scudb/build/test && $(CMAKE_COMMAND) -P CMakeFiles/check.dir/cmake_clean.cmake
+	cd /home/yangwen/scudb/build/test && $(CMAKE_COMMAND) -P CMakeFiles/check.dir/cmake_clean.cmake
 .PHONY : test/CMakeFiles/check.dir/clean
 
 test/CMakeFiles/check.dir/depend:
-	cd /home/yang/scudb/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yang/scudb /home/yang/scudb/test /home/yang/scudb/build /home/yang/scudb/build/test /home/yang/scudb/build/test/CMakeFiles/check.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/yangwen/scudb/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yangwen/scudb /home/yangwen/scudb/test /home/yangwen/scudb/build /home/yangwen/scudb/build/test /home/yangwen/scudb/build/test/CMakeFiles/check.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : test/CMakeFiles/check.dir/depend
 

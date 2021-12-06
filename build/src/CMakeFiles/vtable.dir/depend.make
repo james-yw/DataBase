@@ -269,6 +269,7 @@ src/CMakeFiles/vtable.dir/page/b_plus_tree_leaf_page.cpp.o: ../src/include/catal
 src/CMakeFiles/vtable.dir/page/b_plus_tree_leaf_page.cpp.o: ../src/include/catalog/schema.h
 src/CMakeFiles/vtable.dir/page/b_plus_tree_leaf_page.cpp.o: ../src/include/common/config.h
 src/CMakeFiles/vtable.dir/page/b_plus_tree_leaf_page.cpp.o: ../src/include/common/exception.h
+src/CMakeFiles/vtable.dir/page/b_plus_tree_leaf_page.cpp.o: ../src/include/common/logger.h
 src/CMakeFiles/vtable.dir/page/b_plus_tree_leaf_page.cpp.o: ../src/include/common/rid.h
 src/CMakeFiles/vtable.dir/page/b_plus_tree_leaf_page.cpp.o: ../src/include/common/rwmutex.h
 src/CMakeFiles/vtable.dir/page/b_plus_tree_leaf_page.cpp.o: ../src/include/disk/disk_manager.h
@@ -277,6 +278,7 @@ src/CMakeFiles/vtable.dir/page/b_plus_tree_leaf_page.cpp.o: ../src/include/hash/
 src/CMakeFiles/vtable.dir/page/b_plus_tree_leaf_page.cpp.o: ../src/include/index/generic_key.h
 src/CMakeFiles/vtable.dir/page/b_plus_tree_leaf_page.cpp.o: ../src/include/logging/log_manager.h
 src/CMakeFiles/vtable.dir/page/b_plus_tree_leaf_page.cpp.o: ../src/include/logging/log_record.h
+src/CMakeFiles/vtable.dir/page/b_plus_tree_leaf_page.cpp.o: ../src/include/page/b_plus_tree_internal_page.h
 src/CMakeFiles/vtable.dir/page/b_plus_tree_leaf_page.cpp.o: ../src/include/page/b_plus_tree_leaf_page.h
 src/CMakeFiles/vtable.dir/page/b_plus_tree_leaf_page.cpp.o: ../src/include/page/b_plus_tree_page.h
 src/CMakeFiles/vtable.dir/page/b_plus_tree_leaf_page.cpp.o: ../src/include/page/page.h

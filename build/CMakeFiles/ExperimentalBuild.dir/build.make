@@ -62,10 +62,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yang/scudb
+CMAKE_SOURCE_DIR = /home/yangwen/scudb
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yang/scudb/build
+CMAKE_BINARY_DIR = /home/yangwen/scudb/build
 
 # Utility rule file for ExperimentalBuild.
 
@@ -90,6 +90,6 @@ CMakeFiles/ExperimentalBuild.dir/clean:
 .PHONY : CMakeFiles/ExperimentalBuild.dir/clean
 
 CMakeFiles/ExperimentalBuild.dir/depend:
-	cd /home/yang/scudb/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yang/scudb /home/yang/scudb /home/yang/scudb/build /home/yang/scudb/build /home/yang/scudb/build/CMakeFiles/ExperimentalBuild.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/yangwen/scudb/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yangwen/scudb /home/yangwen/scudb /home/yangwen/scudb/build /home/yangwen/scudb/build /home/yangwen/scudb/build/CMakeFiles/ExperimentalBuild.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ExperimentalBuild.dir/depend
 

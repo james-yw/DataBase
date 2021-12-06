@@ -1,4 +1,4 @@
-# Install script for directory: /home/yang/scudb/test
+# Install script for directory: /home/yangwen/scudb/test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

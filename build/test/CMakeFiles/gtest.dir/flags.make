@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -Dgtest_EXPORTS
 
-CXX_INCLUDES = -I/home/yang/scudb/src -I/home/yang/scudb/src/include -I/home/yang/scudb/test/include -I/home/yang/scudb/third_party -isystem /home/yang/scudb/third_party/gmock
+CXX_INCLUDES = -I/home/yangwen/scudb/src -I/home/yangwen/scudb/src/include -I/home/yangwen/scudb/test/include -I/home/yangwen/scudb/third_party -isystem /home/yangwen/scudb/third_party/gmock
 
-CXX_FLAGS =  -std=c++1y -D__VTableFILE__='"$(subst /home/yang/scudb/,,$(abspath $<))"' -fPIC -Wall -Wextra -Werror -Wno-uninitialized -march=native -Wno-unused-parameter  -fPIC   -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy
+CXX_FLAGS =  -std=c++1y -D__VTableFILE__='"$(subst /home/yangwen/scudb/,,$(abspath $<))"' -fPIC  -Wextra  -Wno-uninitialized -march=native -Wno-unused-parameter  -fPIC   -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy -Wno-error=deprecated-copy
 

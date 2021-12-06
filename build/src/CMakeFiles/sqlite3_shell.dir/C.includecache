@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/yang/scudb/src/include/sqlite/sqlite3.h
+/home/yangwen/scudb/src/include/sqlite/sqlite3.h
 stdarg.h
 -
 
-/home/yang/scudb/src/sqlite/shell.c
+/home/yangwen/scudb/src/sqlite/shell.c
 stdlib.h
 -
 string.h
@@ -20,9 +20,9 @@ stdio.h
 assert.h
 -
 ../include/sqlite/sqlite3.h
-/home/yang/scudb/src/include/sqlite/sqlite3.h
+/home/yangwen/scudb/src/include/sqlite/sqlite3.h
 sqlite3userauth.h
-/home/yang/scudb/src/sqlite/sqlite3userauth.h
+/home/yangwen/scudb/src/sqlite/sqlite3userauth.h
 ctype.h
 -
 stdarg.h
@@ -42,7 +42,7 @@ readline/history.h
 editline/readline.h
 -
 linenoise.h
-/home/yang/scudb/src/sqlite/linenoise.h
+/home/yangwen/scudb/src/sqlite/linenoise.h
 io.h
 -
 fcntl.h

@@ -154,11 +154,11 @@ iosfwd
 vector
 -
 
-/home/yang/scudb/test/hash/extendible_hash_test.cpp
+/home/yangwen/scudb/test/hash/extendible_hash_test.cpp
 thread
 -
 hash/extendible_hash.h
-/home/yang/scudb/test/hash/hash/extendible_hash.h
+/home/yangwen/scudb/test/hash/hash/extendible_hash.h
 gtest/gtest.h
-/home/yang/scudb/test/hash/gtest/gtest.h
+/home/yangwen/scudb/test/hash/gtest/gtest.h
 

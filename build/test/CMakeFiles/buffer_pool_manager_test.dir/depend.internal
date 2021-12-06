@@ -23,4 +23,4 @@ test/CMakeFiles/buffer_pool_manager_test.dir/buffer/buffer_pool_manager_test.cpp
  ../src/include/type/type_id.h
  ../src/include/type/value.h
  ../third_party/gmock/gtest/gtest.h
- /home/yang/scudb/test/buffer/buffer_pool_manager_test.cpp
+ /home/yangwen/scudb/test/buffer/buffer_pool_manager_test.cpp

@@ -324,11 +324,11 @@ iosfwd
 vector
 -
 
-/home/yang/scudb/test/buffer/buffer_pool_manager_test.cpp
+/home/yangwen/scudb/test/buffer/buffer_pool_manager_test.cpp
 cstdio
 -
 buffer/buffer_pool_manager.h
-/home/yang/scudb/test/buffer/buffer/buffer_pool_manager.h
+/home/yangwen/scudb/test/buffer/buffer/buffer_pool_manager.h
 gtest/gtest.h
-/home/yang/scudb/test/buffer/gtest/gtest.h
+/home/yangwen/scudb/test/buffer/gtest/gtest.h
 

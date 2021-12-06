@@ -7,4 +7,4 @@ test/CMakeFiles/lru_replacer_test.dir/buffer/lru_replacer_test.cpp.o
  ../src/include/hash/extendible_hash.h
  ../src/include/hash/hash_table.h
  ../third_party/gmock/gtest/gtest.h
- /home/yang/scudb/test/buffer/lru_replacer_test.cpp
+ /home/yangwen/scudb/test/buffer/lru_replacer_test.cpp

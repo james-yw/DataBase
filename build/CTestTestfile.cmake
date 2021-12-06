@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/yang/scudb
-# Build directory: /home/yang/scudb/build
+# Source directory: /home/yangwen/scudb
+# Build directory: /home/yangwen/scudb/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
